@@ -1,0 +1,7 @@
+<h1><%= "#{@user.first_name} #{@user.last_name}" %></h1>
+
+<ul>
+  <li>born <%= @user.birthday %></li>
+  <li><%= @user.gender %></li>
+  <li>joined on <%= @user.created_at.to_date %></li>
+</ul>

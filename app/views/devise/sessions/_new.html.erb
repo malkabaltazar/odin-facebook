@@ -1,0 +1,17 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+    <li><%= f.label :email %></li>
+    <li><%= f.email_field :email, autofocus: true, autocomplete: "email" %></li>
+  </div>
+
+  <div class="field">
+    <li><%= f.label :password %></li>
+    <li><%= f.password_field :password, autocomplete: "off" %></li>
+  </div>
+
+  <div class="actions">
+    <li><%= f.submit "Log in" %></li>
+  </div>
+<% end %>
+
+<li><%= link_to "Forgot account?", new_password_path(resource_name) %></li>
