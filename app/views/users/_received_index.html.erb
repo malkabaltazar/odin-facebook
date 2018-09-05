@@ -1,0 +1,3 @@
+<p>Respond to Your <%= @received.count %> Friend <%= "Request".pluralize(@received.count) %></p>
+<%= link_to "View Sent Requests", users_path(params.to_unsafe_h.merge(partial: "sent_index")) %>
+<%= render partial: "received", collection: @received %>

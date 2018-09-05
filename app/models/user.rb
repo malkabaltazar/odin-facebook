@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  has_many :notifications, dependent: :destroy
+  has_many :sent_requests, class_name: 'Notification', as: :notifiable
+  has_many :friendships, dependent: :destroy
+  has_many :friends, through: :friendships
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

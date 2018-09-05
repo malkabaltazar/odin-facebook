@@ -1,7 +1,16 @@
 <h1><%= "#{@user.first_name} #{@user.last_name}" %></h1>
 
+<% partial = params[:partial] || "about" %>
+
 <ul>
-  <li>born <%= @user.birthday %></li>
-  <li><%= @user.gender %></li>
-  <li>joined on <%= @user.created_at.to_date %></li>
+  <li><%= link_to "Timeline", "#" %></li>
+  <li><%= link_to "About", user_path(params.to_unsafe_h.merge(partial: "about")) %></li>
+  <li><%= link_to "Friends", user_path(params.to_unsafe_h.merge(partial: "friends")) %></li>
+  <li><%= link_to "Photos", "#" %></li>
+  <% if @user == current_user %>
+    <li><%= link_to "\u{1F512} Archive", "#" %></li>
+  <% end %>
+  <li><%= link_to "More \u25BE", "#" %></li>
 </ul>
+
+<%= render partial %>

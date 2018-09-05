@@ -1,5 +1,8 @@
 <li>
   <%= link_to "#{user.first_name} #{user.last_name}", user_path(user) %>
-  <%= link_to "\u{1F464} Add Friend", "#" %>
+  <%= form_for(@notification) do |f| %>
+    <%= f.hidden_field :user, value: user.id %>
+    <%= f.submit "\u{1F464} Add Friend" %>
+  <% end %>
   <%= link_to "Remove", "#" %>
 </li>

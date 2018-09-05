@@ -1,0 +1,12 @@
+<% user = received.notifiable %>
+<li>
+  <%= link_to "#{user.first_name} #{user.last_name}", user_path(user) %>
+  <%= form_for(@friendship) do |f| %>
+    <%= f.hidden_field :user, value: user.id %>
+    <%= f.submit "Confirm" %>
+  <% end %>
+  <% n = Notification.where(user: current_user, notifiable: user).first %>
+  <% if n %>
+    <%= link_to "Delete Request", notification_path(n), :method => :delete %>
+  <% end %>
+</li>

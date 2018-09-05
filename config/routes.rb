@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   end
   devise_for :users
   resources :users, only: [:index, :show]
+  resources :notifications, only: [:create, :destroy]
+  resources :friendships, only: [:create, :destroy]
 end

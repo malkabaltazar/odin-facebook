@@ -30,6 +30,6 @@ class UserSignupTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_template 'users/show'
     assert_not flash.empty?
-    assert_select 'a[href=?]', "/users/sign_out", text: "Log out"
+    assert_select 'a[href=?]', "/users/sign_out", text: "Log Out"
   end
 end

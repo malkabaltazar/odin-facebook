@@ -1,5 +1,6 @@
-<p>Respond to Your (num) Friend Requests</p>
-<%= link_to "View Sent Requests", "#" %>
+<% partial = params[:partial] || "received_index" %>
+
+<%= render partial %>
 
 <p>People You May Know</p>
 <%= render @users %>

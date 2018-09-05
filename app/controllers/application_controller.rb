@@ -8,11 +8,11 @@ class ApplicationController < ActionController::Base
     end
 
     def after_sign_in_path_for(resource)
-      current_user #posts_path
+      current_user
     end
 
     def configure_permitted_parameters
       devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :birthday, :gender])
-      devise_parameter_sanitizer.permit(:account_update, keys: [:account_update, :last_name, :birthday, :gender])
+      devise_parameter_sanitizer.permit(:account_update, keys: [:account_update, :first_name, :last_name, :birthday, :gender])
     end
 end
