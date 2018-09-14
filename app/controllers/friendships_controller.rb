@@ -1,10 +1,11 @@
 class FriendshipsController < ApplicationController
+  before_action :authenticate_user!
   def create
     user = User.find(params[:friendship][:user])
     user.friendships.create(friend: current_user)
     current_user.friendships.create(friend: user)
     Notification.where(user_id: current_user.id, notifiable: user).destroy_all
-    redirect_back(fallback_location: users_path)
+    redirect_back(fallback_location: posts_path)
   end
 
   def destroy
@@ -12,6 +13,6 @@ class FriendshipsController < ApplicationController
     friendship2 = Friendship.where(user: friendship.friend, friend: friendship.user).first
     friendship.destroy
     friendship2.destroy
-    redirect_back(fallback_location: users_path)
+    redirect_back(fallback_location: posts_path)
   end
 end

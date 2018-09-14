@@ -1,0 +1,5 @@
+<% if @user == current_user %>
+  <%= render "posts/new" %>
+  Posts
+<% end %>
+<%= render partial: "posts/post", collection: @posts %>

@@ -28,7 +28,7 @@ class UserSignupTest < ActionDispatch::IntegrationTest
                                  password_confirmation: "foobar" } }
     end
     follow_redirect!
-    assert_template 'users/show'
+    assert_template 'posts/index'
     assert_not flash.empty?
     assert_select 'a[href=?]', "/users/sign_out", text: "Log Out"
   end

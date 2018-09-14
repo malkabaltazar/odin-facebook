@@ -11,3 +11,17 @@ jane:
   birthday: <%= 35.years.ago %>
   gender: female
   email: jane@example.com
+
+jack:
+  first_name: Jack
+  last_name: Example
+  birthday: <%= 30.years.ago %>
+  gender: male
+  email: jack@example.com
+
+jill:
+  first_name: Jill
+  last_name: Example
+  birthday: <%= 25.years.ago %>
+  gender: female
+  email: jill@example.com

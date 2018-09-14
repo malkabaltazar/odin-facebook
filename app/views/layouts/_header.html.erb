@@ -3,7 +3,7 @@
     <% if user_signed_in? %>
     <li>search bar</li>
     <li><%= link_to current_user.first_name, user_path(current_user) %></li>
-    <li><%= link_to "Home", "#" %></li>
+    <li><%= link_to "Home", posts_path %></li>
     <li><%= link_to "Find Friends", users_path %></li>
     <li><%= link_to "\u{1F465}", "#" %></li>
     <li><%= link_to "\u{1F4AC}", "#" %></li>

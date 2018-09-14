@@ -4,7 +4,7 @@ class FriendingTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
   def setup
     @user = users(:john)
-    @other = users(:jane)
+    @other = users(:jack)
   end
 
   test "should friend and unfriend user" do

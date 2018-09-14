@@ -18,6 +18,9 @@ class UsersController < ApplicationController
       redirect_to root_path
     else
       @user = User.find(params[:id])
+      @posts = @user.posts
+      @post = Post.new
+      @comment = Comment.new
       @friends = @user.friends
       @notification = Notification.new
       @friendship = Friendship.new

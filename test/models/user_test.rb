@@ -21,6 +21,14 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
+  test "associated microposts should be destroyed" do
+    @user.save
+    @user.posts.create!(text: "example post")
+    assert_difference 'Post.count', -1 do
+      @user.destroy
+    end
+  end
+
   test "should friend and unfriend a user" do
     @user.save
     jane  = users(:jane)
@@ -29,5 +37,23 @@ class UserTest < ActiveSupport::TestCase
     assert @user.friends.include?(jane)
     f.destroy
     assert_not @user.friends.include?(jane)
+  end
+
+  test "feed should have the right posts" do
+    john = users(:john)
+    jane = users(:jane)
+    jack = users(:jack)
+    # Posts from friend
+    jane.posts.each do |post_friend|
+      assert john.feed.include?(post_friend)
+    end
+    # Posts from self
+    john.posts.each do |post_self|
+      assert john.feed.include?(post_self)
+    end
+    # Posts from nonfriend
+    jack.posts.each do |post_nonfriend|
+      assert_not john.feed.include?(post_nonfriend)
+    end
   end
 end

@@ -1,9 +1,9 @@
 <h1><%= "#{@user.first_name} #{@user.last_name}" %></h1>
 
-<% partial = params[:partial] || "about" %>
+<% partial = params[:partial] || "timeline" %>
 
 <ul>
-  <li><%= link_to "Timeline", "#" %></li>
+  <li><%= link_to "Timeline", user_path(params.to_unsafe_h.merge(partial: "timeline")) %></li>
   <li><%= link_to "About", user_path(params.to_unsafe_h.merge(partial: "about")) %></li>
   <li><%= link_to "Friends", user_path(params.to_unsafe_h.merge(partial: "friends")) %></li>
   <li><%= link_to "Photos", "#" %></li>
