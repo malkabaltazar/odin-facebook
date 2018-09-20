@@ -1,15 +1,15 @@
 <nav>
-  <ul id="navbar">
+  <ul>
     <% if user_signed_in? %>
-    <li>search bar</li>
-    <li><%= link_to current_user.first_name, user_path(current_user) %></li>
+    <li><%= render "layouts/search" %></li>
+    <li><%= link_to gravatar_for(current_user, size: 25) + current_user.first_name, user_path(current_user), id: 'header_gravatar' %></li>
     <li><%= link_to "Home", posts_path %></li>
     <li><%= link_to "Find Friends", users_path %></li>
     <li><%= link_to "\u{1F465}", "#" %></li>
     <li><%= link_to "\u{1F4AC}", "#" %></li>
     <li><%= link_to "\u{1F514}", "#" %></li>
     <li><%= link_to "\u2753", "#" %></li>
-    <li><a href="#">&#9662;</a>
+    <li class="toggle"><a href="#">&#9662;</a>
       <ul class="dropdown">
         <li><%= link_to "Settings", edit_user_registration_path(current_user) %></li>
         <li><%= link_to "Log Out", destroy_user_session_path %></li>

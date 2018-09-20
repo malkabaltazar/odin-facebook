@@ -1,3 +1,27 @@
 // Place all the styles related to the Comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#comment {
+  margin: 10px 0;
+}
+
+#comment_body {
+  background-color: #eeeff4;
+  border-radius: 25px;
+  padding: 10px 10px;
+  font-size: 13px;
+  max-width: 400px;
+  display: inline-block;
+  a {
+    color: #3b5998;
+    font-weight: 510;
+  }
+}
+
+#comment_gravatar {
+  img {
+    float: left;
+    border-radius: 15px;
+    margin-right: 5px;
+  }
+}

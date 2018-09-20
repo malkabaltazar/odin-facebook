@@ -1,26 +1,31 @@
-<div id="post">
-  <h4><%= link_to "#{post.user.first_name} #{post.user.last_name}", user_path(post.user) %></h4>
-  <% if current_user == post.user %>
-    <%= link_to "Delete", post_path(post), :method => :delete %><br>
-  <% end %>
-  <small><%= post.created_at.strftime("%B %e %Y at %l:%M %p") %></small>
-  <p><%= post.text %><p>
+<div class="post">
+  <div id="post_header">
+    <%= link_to gravatar_for(post.user, size: 40), user_path(post.user), class: "post_gravatar" %>
+    <h4><%= link_to "#{post.user.first_name} #{post.user.last_name}", user_path(post.user) %></h4>
+    <% if current_user == post.user %>
+      <div id="delete_link">
+        <%= link_to "Delete", post_path(post), :method => :delete %><br>
+      </div>
+    <% end %>
+    <small><%= post.created_at.strftime("%B %e %Y at %l:%M %p") %></small>
+  </div>
+  <p id="post_body"><%= post.text %><p>
   <% likers = post.likes.all.map(&:user) %>
   <small>
     <%= link_to "\u2764 #{likers.count}", likes_path(params.to_unsafe_h.merge(post_id: post.id)), :target => "_blank" %>
     <% if post.comments.any? %>
-      <%= link_to "#{post.comments.count} #{"Comment".pluralize(post.comments.count)}", "#" %>
+      <%= link_to "#{pluralize(post.comments.count, "Comment")}", "#", id: 'comments_link' %>
     <% end %>
   </small>
-  <br>
-  <% if likers.include?(current_user) %>
-    <% l = Like.where(user: current_user, post: post).first %>
-    <%= link_to "Unlike", like_path(l), :method => :delete %>
-  <% else %>
-    <%= link_to "\u{1F44D} Like", likes_path(params.to_unsafe_h.merge(post_id: post.id)), :method => :post %>
-  <% end %>
-  <%= link_to "\u{1F4AC} Comment", "#" %>
-  <br>
+  <div id="post_options">
+    <% if likers.include?(current_user) %>
+      <% l = Like.where(user: current_user, post: post).first %>
+      <%= link_to "Unlike", like_path(l), :method => :delete %>
+    <% else %>
+      <%= link_to "\u{1F44D} Like", likes_path(params.to_unsafe_h.merge(post_id: post.id)), :method => :post %>
+    <% end %>
+    <%= link_to "\u{1F4AC} Comment", "#" %>
+  </div>
   <%= render post.comments %>
   <%= render "comments/new", post: post %>
 </div>

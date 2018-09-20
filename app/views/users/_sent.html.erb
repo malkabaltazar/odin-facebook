@@ -1,5 +1,6 @@
 <% user = sent.user %>
 <li>
+  <%= link_to gravatar_for(user, size: 72), user_path(user) %>
   <%= link_to "#{user.first_name} #{user.last_name}", user_path(user) %>
   <% n = Notification.where(user: user, notifiable: current_user).first %>
   <% if n %>

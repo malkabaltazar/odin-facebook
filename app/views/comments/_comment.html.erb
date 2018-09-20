@@ -1,10 +1,12 @@
 <div id="comment">
-  <%= link_to "#{comment.user.first_name} #{comment.user.last_name}", user_path(comment.user) %>
-  <%= comment.text %>
-  <% if comment.user == current_user %>
-    <small>
-      <%= link_to "\u{1F5D1} Delete...", comment_path(comment), :method => :delete %>
-    </small>
-  <% end %>
+  <%= link_to gravatar_for(comment.user, size: 30), user_path(comment.user), id: "comment_gravatar" %>
+  <div id="comment_body">
+    <%= link_to "#{comment.user.first_name} #{comment.user.last_name}", user_path(comment.user) %>
+    <%= comment.text %>
+    <% if comment.user == current_user %>
+      <small>
+        <%= link_to "\u{1F5D1} Delete...", comment_path(comment), :method => :delete %>
+      </small>
+    <% end %>
+  </div>
 </div>
-<br>

@@ -1,5 +1,8 @@
-<p>&#128394; Make Post</p>
-<%= form_for(@post) do |f| %>
-  <%= f.text_area :text, placeholder: "What's on your mind?" %>
-  <%= f.submit "Share" %>
-<% end %>
+<div class="post">
+  <p>&#128394; Make Post</p>
+  <%= link_to gravatar_for(current_user, size: 40), user_path(current_user), class: "post_gravatar" %>
+  <%= form_for(@post) do |f| %>
+    <%= f.text_area :text, placeholder: "What's on your mind?" %>
+    <%= f.submit "Share" %>
+  <% end %>
+</div>
