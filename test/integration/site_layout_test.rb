@@ -8,7 +8,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
 
   test "layout links" do
     get root_path
-    assert_template 'devise/registrations/new'
+    assert_template 'users/registrations/new'
     assert_select "a[href=?]", root_path
     assert_select "a[href=?]", new_user_password_path
     get new_user_password_path

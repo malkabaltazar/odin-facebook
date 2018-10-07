@@ -11,7 +11,7 @@ class UserSignupTest < ActionDispatch::IntegrationTest
                                  password: "foo",
                                  password_confirmation: "bar" } }
     end
-    assert_template 'devise/registrations/new'
+    assert_template 'users/registrations/new'
     assert_select 'form[action="/users"]'
     assert_select 'div#error_explanation'
   end
@@ -28,7 +28,7 @@ class UserSignupTest < ActionDispatch::IntegrationTest
                                  password_confirmation: "foobar" } }
     end
     follow_redirect!
-    assert_template 'posts/index'
+    assert_template 'users/index'
     assert_not flash.empty?
     assert_select 'a[href=?]', "/users/sign_out", text: "Log Out"
   end
