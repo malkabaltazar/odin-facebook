@@ -1,4 +1,4 @@
-nav {
+/* nav {
   position: sticky;
   top: 0;
   background-color: #4267b2;
@@ -48,6 +48,191 @@ nav {
     font-size: 12px;
     &:hover {
       background: #4267b2;
+      color: #fff;
+    }
+  }
+}
+
+.toggle:hover .dropdown {
+  display: block;
+} */
+
+.signed-out {
+  background-color: #3b5998;
+  background-image: linear-gradient(#4e69a2, #3b5998 50%);
+  border-bottom: 1px solid #133783;
+  height: 82px;
+  min-width: 980px;
+  form {
+    width: 980px;
+    margin: auto;
+    display: flex;
+    font-size: 12px;
+    color: #fff;
+  }
+  form > a {
+    background-image: url("https://facebook.com/rsrc.php/v3/ys/r/y7nRb1Fhh8Z.png");
+    background-position: 0 0;
+    background-size: 100% 100%;
+    margin-top: 27px;
+    width: 170px;
+    height: 33px;
+    background-repeat: no-repeat;
+    display: inline-block;
+  }
+  .field, .actions {
+    margin-left: 15px;
+    a {
+      color: #9cb4d8;
+      padding-top: 4px;
+      &:hover { text-decoration: underline; }
+    }
+  }
+  .left { margin-left: auto; }
+  .field > * { display: block; }
+  label { padding: 15px 0 5px 1px; }
+  input {
+    border: #1d2a5b solid 1px;
+    margin: 0;
+    width: 142px;
+    height: 17px;
+    padding-bottom: 4px;
+  }
+  .actions input {
+    color: white;
+    font-weight: bold;
+    line-height: 18px;
+    background-color: #4267b2;
+    border: 1px solid #29487d;
+    border-radius: 2px;
+    padding: 2px 6px;
+    text-align: center;
+    height: 24px;
+    width: auto;
+    margin-top: 34px;
+    &:hover { background-color: #3b5998; }
+  }
+}
+
+.signed-in {
+  top: 0;
+  position: sticky;
+  position: -webkit-sticky;
+}
+
+.signed-in ul {
+  padding-left: 0;
+  height: 42px;
+  width: 100%;
+  background-color: #4267b2;
+  border-bottom: 1px solid #1f4189;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .logo {
+    background-image: url("https://www.facebook.com/rsrc.php/v3/yT/r/HRyvyppoQZ3.png");
+    background-repeat: no-repeat;
+    background-size: 29px 1412px;
+    background-position: 0 -442px;
+    display: block;
+    height: 24px;
+    outline: none;
+    overflow: hidden;
+    text-indent: -999px;
+    white-space: nowrap;
+    width: 24px;
+  }
+  form {
+    border: 1px solid #3b5998;
+    border-radius: 3px;
+    box-sizing: border-box;
+    height: 26px;
+    left: -1px;
+    margin-top: 0;
+    max-width: 448px;
+    overflow: hidden;
+    margin-left: 5px;
+    margin-right: 48px;
+    position: relative;
+    overflow: visible;
+    .field {
+      height: 22px;
+      min-width: 89px;
+      max-width: 393px;
+      border: none;
+      border-radius: 2px 0 0 2px;
+      margin-right: 47px;
+    }
+    .submit {
+      background: #f5f6f7;
+      border: none;
+      border-radius: 0 2px 2px 0;
+      bottom: 0;
+      line-height: 1;
+      padding: 0 16px;
+      position: absolute;
+      right: 0;
+      text-align: center;
+      top: 0;
+      &:hover { background-color: #f5f6f7; }
+    }
+  }
+  li {
+    position: relative;
+    a { padding: 8.5px 10px 6.5px 10px; }
+  }
+  .text-link a {
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    &:hover { background: #3b5998; }
+  }
+  .user a {
+    display: flex;
+    align-items: center;
+    padding: 2px 10px 2px 17px;
+    img {
+      border-radius: 15px;
+      margin-left: -15px;
+      margin-right: 3px;
+    }
+  }
+  .sprites {
+    background-image: url("https://www.facebook.com/rsrc.php/v3/yT/r/HRyvyppoQZ3.png");
+    background-repeat: no-repeat;
+    background-size: 29px 1412px;
+    height: 24px;
+    width: 24px;
+    margin-left: 10px;
+  }
+  .requests { background-position: 0 -867px; }
+  .messages { background-position: 0 -917px; }
+  .notifications { background-position: 0 -767px; }
+  .help { background-position: 0 -967px; }
+  .toggle { background-position: 0 -817px; }
+}
+
+.toggle ul {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  height: auto;
+  width: auto;
+  border: none;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+  padding: 5px 0;
+  right: 0;
+  top: 24px;
+  line-height: 18px;
+  li a {
+    display: block;
+    margin: 0;
+    padding: 3px 30px;
+    color: black;
+    font-size: 12px;
+    &:hover {
+      background-color: #4267b2;
       color: #fff;
     }
   }

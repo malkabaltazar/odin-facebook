@@ -1,23 +1,25 @@
-<nav>
+<% if user_signed_in? %>
+<nav class="nav signed-in">
   <ul>
-    <% if user_signed_in? %>
+    <li class="logo"><%= link_to posts_path %></li>
     <li><%= render "layouts/search" %></li>
-    <li><%= link_to gravatar_for(current_user, size: 25) + current_user.first_name, user_path(current_user), id: 'header_gravatar' %></li>
-    <li><%= link_to "Home", posts_path %></li>
-    <li><%= link_to "Find Friends", users_path %></li>
-    <li><%= link_to "\u{1F465}", "#" %></li>
-    <li><%= link_to "\u{1F4AC}", "#" %></li>
-    <li><%= link_to "\u{1F514}", "#" %></li>
-    <li><%= link_to "\u2753", "#" %></li>
-    <li class="toggle"><a href="#">&#9662;</a>
+    <li class="user text-link"><%= link_to gravatar_for(current_user, size: 25) + current_user.first_name, user_path(current_user), id: 'header_gravatar' %></li>
+    <li class="text-link"><%= link_to "Home", posts_path %></li>
+    <li class="text-link"><%= link_to "Find Friends", users_path %></li>
+    <li class="sprites requests"><%= link_to "" %></li>
+    <li class="sprites messages"><%= link_to "" %></li>
+    <li class="sprites notifications"><%= link_to "" %></li>
+    <li class="sprites help"><%= link_to "" %></li>
+    <li class="sprites toggle"><a href="#"></a>
       <ul class="dropdown">
         <li><%= link_to "Settings", edit_user_registration_path(current_user) %></li>
         <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
       </lu>
     </li>
-    <% else %>
-    <li><%= link_to "facebook", root_path %></li>
-    <%= render 'devise/sessions/new.html.erb' %>
-    <% end %>
   </ul>
 </nav>
+<% else %>
+<nav class="nav signed-out">
+  <%= render 'devise/sessions/new.html.erb' %>
+</nav>
+<% end %>

@@ -1,46 +1,69 @@
-<h2>Sign up</h2>
-<h4>It’s free and always will be.</h4>
+<div class="hp-grid">
+  <div class="hp-left">
+    <h2>Connect with friends and the<br>
+    world around you on Facebook.</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.text_field :first_name, placeholder: "First name" %>
-    <%= f.text_field :last_name, placeholder: "Last name" %>
+    <img class="img" src="https://scontent.ford4-1.fna.fbcdn.net/v/t39.2365-6/32964924_188362901982436_5189181917978689536_n.png?_nc_cat=111&amp;_nc_ht=scontent.ford4-1.fna&amp;oh=eb5eb450efbc88fe9d0c9cbb0437e83a&amp;oe=5C825DA3" width="56" height="56" style="vertical-align: middle">
+    <span><strong>See photos and updates</strong> from friends in News Feed.</span>
+    <img class="img" src="https://scontent.ford4-1.fna.fbcdn.net/v/t39.2365-6/32967637_1400301410075884_2994305350271762432_n.png?_nc_cat=108&amp;_nc_ht=scontent.ford4-1.fna&amp;oh=bc1f37811aaed3a40441175e571ad25b&amp;oe=5C854AB0" width="56" height="56" style="vertical-align: middle">
+    <span><strong>Share what's new</strong> in your life on your Timeline.</span>
+    <img class="img" src="https://scontent.ford4-1.fna.fbcdn.net/v/t39.2365-6/33137320_1687624661315903_5362007326045765632_n.png?_nc_cat=111&amp;_nc_ht=scontent.ford4-1.fna&amp;oh=284af24d33824a59a3c0f28b6b7c8795&amp;oe=5C765505" width="56" height="56" style="vertical-align: middle">
+    <span><strong>Find more</strong> of what you're looking for with Facebook Search.</span>
   </div>
 
-  <div class="field">
-    <%= f.email_field :email, placeholder: "Email" %>
-  </div>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "sign-up"}) do |f| %>
+    <div class="error">
+      <%= devise_error_messages! %>
+    </div>
 
-  <div class="field">
-    <%= f.password_field :password, autocomplete: "off", placeholder: "New password" %>
-  </div>
+    <h2>Sign up</h2>
+    <h4>It’s free and always will be.</h4>
 
-  <div class="field">
-    <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Password confirmation" %>
-  </div>
+    <div class="field span-1">
+      <%= f.text_field :first_name, placeholder: "First name" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :birthday %><br>
-    <%= f.date_select :birthday, :order => [:month, :day, :year], start_year: Date.today.year, end_year: 1905, use_short_month: true %>
-  </div>
+    <div class="field span-1">
+      <%= f.text_field :last_name, placeholder: "Last name" %>
+    </div>
 
-  <div class="field">
-    <%= f.radio_button :gender, "female" %>
-    <%= f.label :gender, "Female" %>
-    <%= f.radio_button :gender, "male" %>
-    <%= f.label :gender, "Male"  %>
-  </div>
+    <div class="field">
+      <%= f.email_field :email, placeholder: "Email" %>
+    </div>
 
-  <p>By clicking Sign Up, you agree to our <%= link_to "Terms" %>,
-    <%= link_to "Data Policy" %> and<br> <%= link_to "Cookies Policy" %>.
-    You may receive SMS Notifications from us and<br>
-    can opt out any time.</p>
+    <div class="field">
+      <%= f.password_field :password, autocomplete: "off", placeholder: "New password" %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+    <div class="field">
+      <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Password confirmation" %>
+    </div>
 
-<%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
+    <div><%= f.label :birthday %></div>
+
+    <div class="field span-1">
+      <%= f.date_select :birthday, :order => [:month, :day, :year], start_year: Date.today.year, end_year: 1905, use_short_month: true %>
+    </div>
+
+    <small class="span-1"><%= link_to "Why do I need to provide my birthday?" %></small>
+
+    <div class="field radio">
+      <%= f.radio_button :gender, "female" %>
+      <%= f.label :gender, "Female" %>
+      <%= f.radio_button :gender, "male" %>
+      <%= f.label :gender, "Male"  %>
+    </div>
+
+    <small>
+      By clicking Sign Up, you agree to our <%= link_to "Terms" %>,
+      <%= link_to "Data Policy" %> and<br> <%= link_to "Cookies Policy" %>.
+      You may receive SMS Notifications from us and<br>
+      can opt out any time.
+    </small>
+
+    <div class="actions">
+      <%= f.submit "Sign up" %>
+    </div>
+    <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
+  <% end %>
+</div>

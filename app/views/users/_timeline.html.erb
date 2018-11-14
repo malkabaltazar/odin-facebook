@@ -1,5 +1,5 @@
 <% if @user == current_user %>
   <%= render "posts/new" %>
-  <div id="posts_title">Posts</div>
+  <div id="user-posts">Posts</div>
 <% end %>
 <%= render partial: "posts/post", collection: @posts %>
