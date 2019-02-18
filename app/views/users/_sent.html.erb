@@ -4,6 +4,6 @@
   <%= link_to "#{user.first_name} #{user.last_name}", user_path(user) %>
   <% n = Notification.where(user: user, notifiable: current_user).first %>
   <% if n %>
-    <%= link_to "\u{1F464} Cancel Friend Request", notification_path(n), :method => :delete %>
+    <%= link_to "\u{1F464} Cancel Friend Request", notification_path(n), :method => :delete, class: "grey-button" %>
   <% end %>
 </li>

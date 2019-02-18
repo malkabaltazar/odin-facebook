@@ -1,3 +1,5 @@
-<p>Friend Requests Sent</p>
-<%= link_to "View Received Requests", users_path(params.to_unsafe_h.merge(partial: "received_index")) %>
-<%= render partial: "sent", collection: @sent %>
+<div class="friends-index">
+  <p>Friend Requests Sent</p>
+  <%= link_to "View Received Requests", users_path(params.to_unsafe_h.merge(partial: "received_index")) %>
+  <%= render partial: "sent", collection: @sent %>
+</div>

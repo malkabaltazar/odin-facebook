@@ -1,8 +1,10 @@
-<h3>&#128100; About</h3>
-<ul>
-  <% if @user.birthday %>
-    <li>&#127874; <%= @user.birthday.strftime("%B %e, %Y") %></li>
-  <% end %>
-  <li>Gender <%= @user.gender %></li>
-  <li>Joined <%= @user.created_at.strftime("%B %e, %Y") %></li>
-</ul>
+<div class="about-user">
+  <h3>&#128100; About</h3>
+  <ul>
+    <% if @user.birthday %>
+      <li>&#127874; <%= @user.birthday.strftime("%B %e, %Y") %></li>
+    <% end %>
+    <li>Gender <%= @user.gender %></li>
+    <li>Joined <%= @user.created_at.strftime("%B %e, %Y") %></li>
+  </ul>
+</div>

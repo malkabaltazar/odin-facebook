@@ -1,9 +1,9 @@
 <li>
   <%= link_to gravatar_for(user, size: 72), user_path(user) %>
   <%= link_to "#{user.first_name} #{user.last_name}", user_path(user) %>
-  <%= form_for(@notification) do |f| %>
+  <%= form_for(@notification, html: {class: "friend-form"}) do |f| %>
     <%= f.hidden_field :user, value: user.id %>
-    <%= f.submit "\u{1F464} Add Friend" %>
+    <%= f.submit "\u{1F464} Add Friend", class: "blue-button" %>
   <% end %>
-  <%= link_to "Remove", "#" %>
+  <%= link_to "Remove", "#", class: "grey-button" %>
 </li>

@@ -1,6 +1,6 @@
-<div id="comment">
-  <%= link_to gravatar_for(comment.user, size: 30), user_path(comment.user), id: "comment_gravatar" %>
-  <div id="comment_body">
+<div class="comment">
+  <%= link_to gravatar_for(comment.user, size: 30), user_path(comment.user), class: "comment_gravatar" %>
+  <div class="comment_body">
     <%= link_to "#{comment.user.first_name} #{comment.user.last_name}", user_path(comment.user) %>
     <%= comment.text %>
     <% if comment.user == current_user %>

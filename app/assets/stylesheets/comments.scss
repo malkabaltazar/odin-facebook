@@ -1,11 +1,33 @@
 // Place all the styles related to the Comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-#comment {
-  margin: 10px 0;
+.new-comment {
+  height: 32px;
+  textarea {
+    height: 14px;
+    width: 415px;
+    background-color: #f2f3f5;
+    border: 1px solid #ccd0d5;
+    border-radius: 16px 0 0 16px;
+    cursor: text;
+    line-height: 16px;
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+  input {
+    float: right;
+    background-color: #f2f3f5;
+    border: 1px solid #ccd0d5;
+    height: 32px;
+    border-radius: 0 16px 16px 0;
+  }
 }
 
-#comment_body {
+.comment {
+  margin-top: 10px;
+}
+
+.comment_body {
   background-color: #eeeff4;
   border-radius: 25px;
   padding: 10px 10px;
@@ -15,10 +37,11 @@
   a {
     color: #3b5998;
     font-weight: 510;
+    &:hover { text-decoration: underline; }
   }
 }
 
-#comment_gravatar {
+.comment_gravatar {
   img {
     float: left;
     border-radius: 15px;

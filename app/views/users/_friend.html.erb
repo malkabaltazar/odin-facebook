@@ -3,21 +3,21 @@
   <%= link_to "#{friend.first_name} #{friend.last_name}", user_path(friend) %>
   <% if friend.in?(current_user.friends) %>
     <% f = Friendship.where(user: current_user, friend: friend).first %>
-    <%= link_to "Unfriend", friendship_path(f), :method => :delete %>
+    <%= link_to "Unfriend", friendship_path(f), :method => :delete, class: "grey-button" %>
   <% elsif Notification.where(user: friend, notifiable: current_user).any? %>
     <% n = Notification.where(user: user, notifiable: current_user).first %>
     <% if n %>
-      <%= link_to "\u{1F464} Cancel Friend Request", notification_path(n), :method => :delete %>
+      <%= link_to "\u{1F464} Cancel Friend Request", notification_path(n), :method => :delete, class: "grey-button" %>
     <% end %>
   <% elsif Notification.where(user: current_user, notifiable: friend).any? %>
     <%= form_for(@friendship) do |f| %>
       <%= f.hidden_field :user, value: friend.id %>
-      <%= f.submit "\u{1F464} Respond to Friend Request" %>
+      <%= f.submit "\u{1F464} Respond to Friend Request", class: "grey-button" %>
     <% end %>
   <% elsif friend != current_user %>
     <%= form_for(@notification) do |f| %>
       <%= f.hidden_field :user, value: friend.id %>
-      <%= f.submit "\u{1F464} Add Friend" %>
+      <%= f.submit "\u{1F464} Add Friend", class: "blue-button" %>
     <% end %>
   <% end %>
 </li>

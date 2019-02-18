@@ -4,10 +4,10 @@
   <%= link_to "#{user.first_name} #{user.last_name}", user_path(user) %>
   <%= form_for(@friendship) do |f| %>
     <%= f.hidden_field :user, value: user.id %>
-    <%= f.submit "Confirm" %>
+    <%= f.submit "Confirm", class: "blue-button" %>
   <% end %>
   <% n = Notification.where(user: current_user, notifiable: user).first %>
   <% if n %>
-    <%= link_to "Delete Request", notification_path(n), :method => :delete %>
+    <%= link_to "Delete Request", notification_path(n), :method => :delete, class: "grey-button" %>
   <% end %>
 </li>

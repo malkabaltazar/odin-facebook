@@ -1,19 +1,21 @@
-<h1>
+<div class="user-cover">
   <%= gravatar_for @user, size: 160 %>
-  <%= "#{@user.first_name} #{@user.last_name}" %>
-</h1>
+  <h1><%= "#{@user.first_name} #{@user.last_name}" %></h1>
+</div>
 
 <% partial = params[:partial] || "timeline" %>
 
-<ul>
-  <li><%= link_to "Timeline", user_path(params.to_unsafe_h.merge(partial: "timeline")) %></li>
-  <li><%= link_to "About", user_path(params.to_unsafe_h.merge(partial: "about")) %></li>
-  <li><%= link_to "Friends", user_path(params.to_unsafe_h.merge(partial: "friends")) %></li>
-  <li><%= link_to "Photos", "#" %></li>
-  <% if @user == current_user %>
-    <li><%= link_to "\u{1F512} Archive", "#" %></li>
-  <% end %>
-  <li><%= link_to "More \u25BE", "#" %></li>
-</ul>
+<div class="user-tabs">
+  <ul>
+    <li><%= link_to "Timeline", user_path(params.to_unsafe_h.merge(partial: "timeline")) %></li>
+    <li><%= link_to "About", user_path(params.to_unsafe_h.merge(partial: "about")) %></li>
+    <li><%= link_to "Friends", user_path(params.to_unsafe_h.merge(partial: "friends")) %></li>
+    <li><%= link_to "Photos", "#" %></li>
+    <% if @user == current_user %>
+      <li><%= link_to "\u{1F512} Archive", "#" %></li>
+    <% end %>
+    <li><%= link_to "More \u25BE", "#" %></li>
+  </ul>
+</div>
 
 <%= render partial %>

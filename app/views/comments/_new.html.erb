@@ -1,5 +1,8 @@
-<%= form_for (@comment) do |f| %>
-  <%= f.text_area :text, placeholder: "Write a comment..." %>
-  <%= f.hidden_field :post_id, value: post.id %>
-  <%= f.submit "\u25B6" %>
-<% end %>
+<div class="comment">
+  <%= link_to gravatar_for(current_user, size: 30), user_path(current_user), class: "comment_gravatar" %>
+  <%= form_for(@comment, :html => {class: "new-comment"}) do |f| %>
+    <%= f.text_area :text, placeholder: "Write a comment..." %>
+    <%= f.hidden_field :post_id, value: post.id %>
+    <%= f.submit "\u25B6" %>
+  <% end %>
+</div>
